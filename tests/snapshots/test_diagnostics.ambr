@@ -33,6 +33,13 @@
         }),
         'state': 0,
       }),
+      'gallons_today': dict({
+        'attrs': dict({
+          'related': list([
+          ]),
+        }),
+        'state': 0,
+      }),
       'hourly': list([
         dict({
           'flags': None,

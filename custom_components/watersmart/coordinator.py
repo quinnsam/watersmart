@@ -27,6 +27,7 @@ class CoordinatorData(TypedDict, total=False):
 
     gallons_for_most_recent_hour: SensorData
     gallons_for_most_recent_full_day: SensorData
+    gallons_today: SensorData
     hourly: list[UsageRecord]
 
 
@@ -65,6 +66,7 @@ class WaterSmartUpdateCoordinator(DataUpdateCoordinator[CoordinatorData]):
         self.data_converters = (
             _sensor_data_for_most_recent_hour,
             _sensor_data_for_most_recent_full_day,
+            _sensor_data_for_today,
         )
 
     async def _async_update_data(self) -> CoordinatorData:
@@ -186,6 +188,45 @@ def _sensor_data_for_most_recent_full_day(data: CoordinatorData) -> SensorData:
     }
 
 
+@_data_converter(SensorKey.GALLONS_TODAY)
+def _sensor_data_for_today(data: CoordinatorData) -> SensorData:
+    """Extract data for today.
+
+    Returns:
+        The extracted & converted records.
+    """
+
+    records = _records_from_today(data)
+    gallons = sum(_record_gallons(r) for r in records)
+
+    return {
+        "state": gallons,
+        "attrs": {
+            "related": _serialize_records(records),
+        },
+    }
+
+
+def _records_from_today(data: CoordinatorData) -> list[UsageRecord]:
+    """Extract records for today.
+
+    Returns:
+        The extracted records.
+    """
+
+    today_records = []
+    start_of_day = start_of_local_day()
+
+    for record in reversed(data["hourly"]):  # pragma: no cover
+        record_date = as_local(_from_timestamp(record["read_datetime"]))
+        if record_date >= start_of_day:
+            today_records.append(record)
+        else:
+            break
+
+    return list(reversed(today_records))
+
+
 def _records_from_first_full_day(data: CoordinatorData) -> list[UsageRecord]:
     """Extract records for first full day.
 
@@ -195,10 +236,14 @@ def _records_from_first_full_day(data: CoordinatorData) -> list[UsageRecord]:
 
     full_day_records = []
     last_full_day = None
+    start_of_today = start_of_local_day()
 
     for record in reversed(data["hourly"]):
         record_date = as_local(_from_timestamp(record["read_datetime"]))
         start_of_day = start_of_local_day(record_date)
+
+        if start_of_day >= start_of_today:
+            continue
 
         if last_full_day and start_of_day < last_full_day:
             break
@@ -223,8 +268,8 @@ def _record_gallons(record: UsageRecord) -> float | int:
     """
 
     result = record["gallons"]
-    if result is None:
-        result = 0
+    if result is None:  # pragma: no cover
+        result = 0  # pragma: no cover
     return result
 
 

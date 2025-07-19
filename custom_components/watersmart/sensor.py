@@ -8,6 +8,7 @@ from homeassistant.components.sensor import (
     SensorDeviceClass,
     SensorEntity,
     SensorEntityDescription,
+    SensorStateClass,
 )
 from homeassistant.const import UnitOfVolume
 from homeassistant.core import HomeAssistant, callback
@@ -35,6 +36,7 @@ SENSOR_TYPES: tuple[WaterSmartSensorDescription, ...] = (
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         translation_key="gallons_for_most_recent_hour",
+        state_class=SensorStateClass.TOTAL,
     ),
     WaterSmartSensorDescription(
         key=SensorKey.GALLONS_FOR_MOST_RECENT_FULL_DAY_KEY,
@@ -42,6 +44,14 @@ SENSOR_TYPES: tuple[WaterSmartSensorDescription, ...] = (
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         translation_key="gallons_for_most_recent_full_day",
+    ),
+    WaterSmartSensorDescription(
+        key=SensorKey.GALLONS_TODAY,
+        value_fn=lambda data: cast("float", data),
+        device_class=SensorDeviceClass.WATER,
+        native_unit_of_measurement=UnitOfVolume.GALLONS,
+        state_class=SensorStateClass.TOTAL,
+        translation_key="gallons_today",
     ),
 )
 

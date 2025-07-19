@@ -1,0 +1,323 @@
+# serializer version: 1
+# name: test_records_from_first_full_day_continue_today
+  dict({
+    <SensorKey.GALLONS_FOR_MOST_RECENT_FULL_DAY_KEY: 'gallons_for_most_recent_full_day_key'>: dict({
+      'attrs': dict({
+        'related': list([
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T23:00:00-07:00',
+          }),
+        ]),
+      }),
+      'state': 2.0,
+    }),
+    <SensorKey.GALLONS_FOR_MOST_RECENT_HOUR: 'gallons_for_most_recent_hour'>: dict({
+      'attrs': dict({
+        'related': list([
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-17T01:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-17T00:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T23:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T22:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T21:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T20:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T19:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T18:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T17:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T16:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T15:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T14:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T13:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T12:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T11:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T10:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T09:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T08:00:00-07:00',
+          }),
+          dict({
+            'gallons': 2.0,
+            'start': '2024-07-16T07:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T15:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T16:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T17:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T18:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T19:00:00-07:00',
+          }),
+        ]),
+        'start': '2024-07-18T19:00:00-07:00',
+      }),
+      'state': 1.0,
+    }),
+    <SensorKey.GALLONS_TODAY: 'gallons_today'>: dict({
+      'attrs': dict({
+        'related': list([
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T15:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T16:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T17:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T18:00:00-07:00',
+          }),
+          dict({
+            'gallons': 1.0,
+            'start': '2024-07-18T19:00:00-07:00',
+          }),
+        ]),
+      }),
+      'state': 5.0,
+    }),
+    'hourly': list([
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721196000,
+        'read_id': 123,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721192400,
+        'read_id': 122,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721188800,
+        'read_id': 121,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721185200,
+        'read_id': 120,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721181600,
+        'read_id': 119,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721178000,
+        'read_id': 118,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721174400,
+        'read_id': 117,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721170800,
+        'read_id': 116,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721167200,
+        'read_id': 115,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721163600,
+        'read_id': 114,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721160000,
+        'read_id': 113,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721156400,
+        'read_id': 112,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721152800,
+        'read_id': 111,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721149200,
+        'read_id': 110,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721145600,
+        'read_id': 109,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721142000,
+        'read_id': 108,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721138400,
+        'read_id': 107,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721134800,
+        'read_id': 106,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721131200,
+        'read_id': 105,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721127600,
+        'read_id': 104,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721124000,
+        'read_id': 103,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721120400,
+        'read_id': 102,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721116800,
+        'read_id': 101,
+      }),
+      dict({
+        'gallons': 2.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721113200,
+        'read_id': 100,
+      }),
+      dict({
+        'gallons': 1.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721314800,
+        'read_id': 4,
+      }),
+      dict({
+        'gallons': 1.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721318400,
+        'read_id': 3,
+      }),
+      dict({
+        'gallons': 1.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721322000,
+        'read_id': 2,
+      }),
+      dict({
+        'gallons': 1.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721325600,
+        'read_id': 1,
+      }),
+      dict({
+        'gallons': 1.0,
+        'meter_id': 'meter1',
+        'read_datetime': 1721329200,
+        'read_id': 0,
+      }),
+    ]),
+  })
+# ---

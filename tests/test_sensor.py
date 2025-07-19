@@ -130,3 +130,14 @@ def test_sensor_update_failure(hass: HomeAssistant, mock_watersmart_client):
     assert recent_hour_sensor_state is None
 
     assert mock_watersmart_client.async_get_hourly_data.call_count == 1
+
+
+@pytest.mark.usefixtures("client_hourly_data_full_day", "init_integration")
+def test_today_sensor(
+    hass: HomeAssistant, mock_watersmart_client, snapshot: SnapshotAssertion
+):
+    """Test sensor."""
+    today_sensor_state = hass.states.get("sensor.watersmart_test_gallons_today")
+
+    assert snapshot == today_sensor_state
+    assert mock_watersmart_client.async_get_hourly_data.call_count == 1

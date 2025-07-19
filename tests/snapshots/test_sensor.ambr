@@ -138,6 +138,7 @@
         }),
       ]),
       'start': '2024-06-19T22:00:00-07:00',
+      'state_class': <SensorStateClass.TOTAL: 'total'>,
       'unit_of_measurement': <UnitOfVolume.LITERS: 'L'>,
     }),
     'context': <ANY>,
@@ -305,10 +306,30 @@
         }),
       ]),
       'start': '2024-06-19T22:00:00-07:00',
+      'state_class': <SensorStateClass.TOTAL: 'total'>,
       'unit_of_measurement': <UnitOfVolume.LITERS: 'L'>,
     }),
     'context': <ANY>,
     'entity_id': 'sensor.watersmart_test_gallons_for_most_recent_hour',
+    'last_changed': <ANY>,
+    'last_reported': <ANY>,
+    'last_updated': <ANY>,
+    'state': '0.0',
+  })
+# ---
+# name: test_today_sensor
+  StateSnapshot({
+    'attributes': ReadOnlyDict({
+      'attribution': 'Data scraped from WaterSmart',
+      'device_class': 'water',
+      'friendly_name': 'WaterSmart (test) Gallons today',
+      'related': list([
+      ]),
+      'state_class': <SensorStateClass.TOTAL: 'total'>,
+      'unit_of_measurement': <UnitOfVolume.LITERS: 'L'>,
+    }),
+    'context': <ANY>,
+    'entity_id': 'sensor.watersmart_test_gallons_today',
     'last_changed': <ANY>,
     'last_reported': <ANY>,
     'last_updated': <ANY>,
