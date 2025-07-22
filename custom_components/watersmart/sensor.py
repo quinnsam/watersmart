@@ -36,7 +36,7 @@ SENSOR_TYPES: tuple[WaterSmartSensorDescription, ...] = (
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         translation_key="gallons_for_most_recent_hour",
-        state_class=SensorStateClass.TOTAL,
+        state_class=SensorStateClass.TOTAL_INCREASING,
     ),
     WaterSmartSensorDescription(
         key=SensorKey.GALLONS_FOR_MOST_RECENT_FULL_DAY_KEY,
@@ -50,7 +50,7 @@ SENSOR_TYPES: tuple[WaterSmartSensorDescription, ...] = (
         value_fn=lambda data: cast("float", data),
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
-        state_class=SensorStateClass.TOTAL,
+        state_class=SensorStateClass.TOTAL_INCREASING,
         translation_key="gallons_today",
     ),
 )
