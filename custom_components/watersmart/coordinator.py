@@ -217,14 +217,12 @@ def _records_from_today(data: CoordinatorData) -> list[UsageRecord]:
     today_records = []
     start_of_day = start_of_local_day()
 
-    for record in reversed(data["hourly"]):  # pragma: no cover
+    for record in data["hourly"]:  # pragma: no cover
         record_date = as_local(_from_timestamp(record["read_datetime"]))
         if record_date >= start_of_day:
             today_records.append(record)
-        else:
-            break
 
-    return list(reversed(today_records))
+    return today_records
 
 
 def _records_from_first_full_day(data: CoordinatorData) -> list[UsageRecord]:

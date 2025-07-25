@@ -1,12 +1,6 @@
 """Support for the WaterSmart service."""
 
-from collections.abc import Callable
-from dataclasses import dataclass
-from typing import Any, cast
-
-from homeassistant.components.sensor import (
     SensorDeviceClass,
-    SensorEntity,
     SensorEntityDescription,
     SensorStateClass,
 )
@@ -36,7 +30,7 @@ SENSOR_TYPES: tuple[WaterSmartSensorDescription, ...] = (
         device_class=SensorDeviceClass.WATER,
         native_unit_of_measurement=UnitOfVolume.GALLONS,
         translation_key="gallons_for_most_recent_hour",
-        state_class=SensorStateClass.TOTAL_INCREASING,
+        state_class=SensorStateClass.MEASUREMENT,
     ),
     WaterSmartSensorDescription(
         key=SensorKey.GALLONS_FOR_MOST_RECENT_FULL_DAY_KEY,
@@ -84,7 +78,7 @@ class WaterSmartSensor(CoordinatorEntity[WaterSmartUpdateCoordinator], SensorEnt
         coordinator: WaterSmartUpdateCoordinator,
         description: WaterSmartSensorDescription,
     ) -> None:
-        """Initialize the sensor."""
+        """Initialize the sensor.""" 
         super().__init__(coordinator)
 
         self.entity_description = description
@@ -123,3 +117,4 @@ class WaterSmartSensor(CoordinatorEntity[WaterSmartUpdateCoordinator], SensorEnt
             The actual sensor data.
         """
         return cast("dict[str, SensorData]", coordinator_data)[kind]
+
