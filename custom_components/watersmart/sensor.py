@@ -1,6 +1,13 @@
 """Support for the WaterSmart service."""
+from __future__ import annotations
 
+from collections.abc import Callable
+from dataclasses import dataclass
+from typing import Any, cast
+
+from homeassistant.components.sensor import (
     SensorDeviceClass,
+    SensorEntity,
     SensorEntityDescription,
     SensorStateClass,
 )
@@ -50,12 +57,12 @@ SENSOR_TYPES: tuple[WaterSmartSensorDescription, ...] = (
 )
 
 
-async def async_setup_entry(  # noqa: RUF029
-    hass: HomeAssistant,  # noqa: ARG001
+async def async_setup_entry(
+    hass: HomeAssistant,
     entry: WaterSmartConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
-    """Set up OpenWeatherMap sensor entities based on a config entry."""
+    """Set up WaterSmart sensor entities based on a config entry."""
     data = entry.runtime_data
     coordinator = data.coordinator
 
@@ -67,7 +74,7 @@ async def async_setup_entry(  # noqa: RUF029
 
 
 class WaterSmartSensor(CoordinatorEntity[WaterSmartUpdateCoordinator], SensorEntity):
-    """Abstract class for an OpenWeatherMap sensor."""
+    """Abstract class for a WaterSmart sensor."""
 
     _attr_attribution = ATTRIBUTION
     _attr_has_entity_name = True
@@ -78,7 +85,7 @@ class WaterSmartSensor(CoordinatorEntity[WaterSmartUpdateCoordinator], SensorEnt
         coordinator: WaterSmartUpdateCoordinator,
         description: WaterSmartSensorDescription,
     ) -> None:
-        """Initialize the sensor.""" 
+        """Initialize the sensor."""
         super().__init__(coordinator)
 
         self.entity_description = description
@@ -111,10 +118,5 @@ class WaterSmartSensor(CoordinatorEntity[WaterSmartUpdateCoordinator], SensorEnt
         coordinator_data: CoordinatorData,
         kind: SensorKey,
     ) -> SensorData:
-        """Get sensor data.
-
-        Returns:
-            The actual sensor data.
-        """
+        """Get sensor data."""
         return cast("dict[str, SensorData]", coordinator_data)[kind]
-
