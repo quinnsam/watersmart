@@ -1,4 +1,5 @@
 """Support for the WaterSmart service."""
+
 from __future__ import annotations
 
 from collections.abc import Callable
@@ -57,8 +58,8 @@ SENSOR_TYPES: tuple[WaterSmartSensorDescription, ...] = (
 )
 
 
-async def async_setup_entry(
-    hass: HomeAssistant,
+def async_setup_entry(
+    hass: HomeAssistant,  # noqa: ARG001
     entry: WaterSmartConfigEntry,
     async_add_entities: AddEntitiesCallback,
 ) -> None:
@@ -118,5 +119,9 @@ class WaterSmartSensor(CoordinatorEntity[WaterSmartUpdateCoordinator], SensorEnt
         coordinator_data: CoordinatorData,
         kind: SensorKey,
     ) -> SensorData:
-        """Get sensor data."""
+        """Get sensor data.
+
+        Returns:
+            The actual sensor data.
+        """
         return cast("dict[str, SensorData]", coordinator_data)[kind]
